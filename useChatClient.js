@@ -16,16 +16,14 @@ export const useChatClient = () => {
             try {
                 await chatClient.connectUser(user, chatUserToken);
                 setClientIsReady(true);
-
             } catch (error) {
                 if (error instanceof Error) {
                     console.error(`An error occurred while connecting the user: ${error.message}`);
                 }
             }
         };
+        return ()=> chatClient.disconnectUser();
     }, []);
-
-
     return {
         clientIsReady,
     };

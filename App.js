@@ -55,15 +55,14 @@ const ChannelListScreen = props => {
 const NavigationStack = () => {
     const { clientIsReady } = useChatClient();
 
-    if (!clientIsReady) {
+    if (clientIsReady) {
         return <Text>Loading chat ...</Text>
     }
     return (
         <OverlayProvider>
             <Chat client={chatClient}>
-               <ChannelList/>
             <Stack.Navigator>
-                <Stack.Screen name="ChannelList" component={ChannelListScreen} />
+                <Stack.Screen name="MEMBER" component={ChannelListScreen} />
             </Stack.Navigator>
             </Chat>
         </OverlayProvider>
@@ -71,7 +70,6 @@ const NavigationStack = () => {
 };
 
 export default () => {
-
     return (
         <AppProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
