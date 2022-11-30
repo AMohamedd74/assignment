@@ -32,7 +32,6 @@ const Stack = createStackNavigator();
 const chatClient = StreamChat.getInstance(chatApiKey);
 
 
-const HomeScreen = () => <Text>Home Screen</Text>;
 const ChannelScreen = () => {
     const { channel } = useAppContext();
     return (
@@ -62,8 +61,8 @@ const NavigationStack = () => {
     return (
         <OverlayProvider>
             <Chat client={chatClient}>
+               <ChannelList/>
             <Stack.Navigator>
-            <Stack.Screen name='Home' component={HomeScreen} />
                 <Stack.Screen name="ChannelList" component={ChannelListScreen} />
             </Stack.Navigator>
             </Chat>
