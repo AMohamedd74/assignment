@@ -1,4 +1,4 @@
-import ImagePicker from "react-native-customized-image-picker";
+import ImagePicker from 'react-native-customized-image-picker';
 
 ImagePicker.openPicker({}).then(image => {
     console.log(image);
